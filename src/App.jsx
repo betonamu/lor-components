@@ -5,6 +5,7 @@ import './App.css'
 import Popover from '@/components/Popover'
 
 import { MixerHorizontalIcon, Cross2Icon } from '@radix-ui/react-icons';
+import AoMaLink from './components/AoMaLink'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -28,6 +29,7 @@ function App() {
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
       </div>
+      <AoMaLink>Hover vô sẽ thấy rất ảo ma</AoMaLink>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
         <Popover>

@@ -1,8 +1,9 @@
+import classNames from 'classnames';
 import styles from './index.module.scss';
 
 function AoMaLink({ children, className, ...props }) {
     return (
-        <a className={`${styles.link} ${className}`} {...props}>
+        <a className={classNames(styles.link, className)} {...props}>
             <span>
                 {children}
             </span>

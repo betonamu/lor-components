@@ -9,9 +9,7 @@ const Popover = ({ children, className }) => {
         <RadixPopover.Root>
             <RadixPopover.Trigger>open</RadixPopover.Trigger>
             <RadixPopover.Portal>
-                <RadixPopover.Content
-                    className={classNames(styles.popoverContent, className)}
-                >
+                <RadixPopover.Content className={classNames(styles.popoverContent, className)}>
                     {children}
                 </RadixPopover.Content>
             </RadixPopover.Portal>
@@ -20,9 +18,11 @@ const Popover = ({ children, className }) => {
 };
 
 const Close = ({ className, props, children }) => {
-    return <RadixPopover.Close {...props} className={classNames(styles.popoverClose, className)} >
-        {children}
-    </RadixPopover.Close>;
+    return (
+        <RadixPopover.Close {...props} className={classNames(styles.popoverClose, className)}>
+            {children}
+        </RadixPopover.Close>
+    );
 };
 
 Popover.Close = Close;

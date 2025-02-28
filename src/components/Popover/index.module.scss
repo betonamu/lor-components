@@ -8,10 +8,6 @@
     animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
     will-change: transform, opacity;
 
-    &:focus {
-        box-shadow: rgba(14, 18, 22, 0.35) 0px 10px 38px -10px, rgba(14, 18, 22, 0.2) 0px 10px 20px -15px, rgb(194, 181, 245) 0px 0px 0px 2px;
-    }
-
     &[data-state='open'][data-side='top'] {
         animation-name: slideDownAndFade;
     }
@@ -43,10 +39,6 @@
 
         &:hover {
             background-color: rgb(235, 228, 255);;
-        }
-
-        &:focus {
-            box-shadow: rgb(194, 181, 245) 0px 0px 0px 2px;;
         }
     }
 }

@@ -1,18 +1,26 @@
+import { useEffect, useState } from "react";
+
 import AoMaLink from "@/components/AoMaLink";
 import { Form } from "@/components/Form";
 import Input from "@/components/Input";
 import Popover from "@/components/Popover";
 import { useBearStore } from "./store";
+import CarouselContainer from "./components/Carousel/CarouselContainer";
 
 import ReactLogo from "@/assets/icons/react.svg";
 import ViteLogo from "@/assets/icons/vite.svg";
 import { Cross2Icon } from "@radix-ui/react-icons";
 
 import "./App.css";
-import CarouselContainer from "./components/Carousel/CarouselContainer";
+import { defaultLocale, dynamicActivate } from "./i18n";
+import { Trans } from "@lingui/react/macro";
 
 function App() {
     const { bears, increasePopulation } = useBearStore();
+
+    useEffect(() => {
+        dynamicActivate(defaultLocale);
+    }, []);
 
     return (
         <>
@@ -20,16 +28,23 @@ function App() {
                 <a href="https://vitejs.dev" target="_blank">
                     <ViteLogo />
                 </a>
+                ngu
                 <a href="https://react.dev" target="_blank">
                     <ReactLogo />
                 </a>
+                <select onChange={(e) => dynamicActivate(e.target.value)}>
+                    <option value="vi" defaultChecked>Tiếng việt</option>
+                    <option value="en">English</option>
+                </select>
             </div>
             <h1>Lor Components</h1>
             <div className="card">
                 <button onClick={increasePopulation}>count is {bears}</button>
-                <p>
-                    Edit <code>src/App.jsx</code> and save to test HMR
-                </p>
+                <Trans>
+                    <p>
+                        Chỉnh sửa <code>src/App.jsx</code> và lưu để test HMR
+                    </p>
+                </Trans>
             </div>
             <AoMaLink>Rat la ao</AoMaLink>
             <p className="read-the-docs">
@@ -67,34 +82,35 @@ function App() {
                 </Form.Item>
                 <button type="submit">Submit</button>
             </Form>
-            <CarouselContainer
-                slides={[
-                    {
-                        id: 1,
-                        img: "https://picsum.photos/500/300",
-                        text: "Slide 1",
-                    },
-                    {
-                        id: 2,
-                        img: "https://picsum.photos/500/300",
-                        text: "Slide 2",
-                    },
-                    {
-                        id: 3,
-                        img: "https://picsum.photos/500/300",
-                        text: "Slide 3",
-                    },
-                ]}
-                slideToShow={2}
-                renderSlide={(slide) => {
-                    return (
-                        <div>
-                            <img src={slide.img} />
-                            <div>{slide.text}</div>
-                        </div>
-                    );
-                }}
-            />
+            <div style={{ maxWidth: 1000, margin: "0 auto" }}>
+                <CarouselContainer
+                    slides={[
+                        {
+                            id: 1,
+                            img: "https://picsum.photos/2000/300",
+                            text: "Slide 1",
+                        },
+                        {
+                            id: 2,
+                            img: "https://picsum.photos/2000/300",
+                            text: "Slide 2",
+                        },
+                        {
+                            id: 3,
+                            img: "https://picsum.photos/2000/300",
+                            text: "Slide 3",
+                        },
+                    ]}
+                    renderSlide={(slide) => {
+                        return (
+                            <div>
+                                <img src={slide.img} />
+                                <div>{slide.text}</div>
+                            </div>
+                        );
+                    }}
+                />
+            </div>
         </>
     );
 }

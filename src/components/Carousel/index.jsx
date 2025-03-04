@@ -33,7 +33,7 @@ const Carousel = ({ children, slideToShow = 1, slideSpacing = "10px", onInit }) 
     );
 };
 
-const Root = ({ children, className, props }) => {
+const ViewPort = ({ children, className, props }) => {
     const { emblaRef } = useContext();
 
     return (
@@ -59,8 +59,23 @@ const Slide = ({ children, className, ...props }) => {
     );
 };
 
-Carousel.Root = Root;
+const Button = ({ children, direction = "prev", className, ...props }) => {
+    return (
+        <button
+            className={classNames(styles.carouselButton, className, {
+                [styles.next]: direction === "next",
+                [styles.prev]: direction === "prev",
+            })}
+            {...props}
+        >
+            {children}
+        </button>
+    );
+};
+
+Carousel.ViewPort = ViewPort;
 Carousel.Container = Container;
 Carousel.Slide = Slide;
+Carousel.Button = Button;
 
 export default Carousel;

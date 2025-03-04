@@ -1,4 +1,5 @@
 import { useRef } from "react";
+
 import Carousel from ".";
 
 import { ChevronLeftIcon, ChevronRightIcon } from "@radix-ui/react-icons";
@@ -14,25 +15,19 @@ const CarouselContainer = ({ slides, slideToShow, renderSlide }) => {
                 ref.current = carousel;
             }}
         >
-            <button
-                style={{ position: "absolute", left: 0, top: "50%", zIndex: 1 }}
-                onClick={() => ref.current.scrollPrev()}
-            >
+            <Carousel.Button onClick={() => ref.current.scrollPrev()}>
                 <ChevronLeftIcon />
-            </button>
-            <Carousel.Root>
+            </Carousel.Button>
+            <Carousel.ViewPort>
                 <Carousel.Container>
                     {slides.map((slide, index) => (
                         <Carousel.Slide key={slide.id || index}>{renderSlide(slide, index)}</Carousel.Slide>
                     ))}
                 </Carousel.Container>
-            </Carousel.Root>
-            <button
-                style={{ position: "absolute", right: 0, top: "50%", zIndex: 1 }}
-                onClick={() => ref.current.scrollNext()}
-            >
+            </Carousel.ViewPort>
+            <Carousel.Button onClick={() => ref.current.scrollNext()} direction="next">
                 <ChevronRightIcon />
-            </button>
+            </Carousel.Button>
         </Carousel>
     );
 };

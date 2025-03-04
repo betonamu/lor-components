@@ -1,11 +1,21 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { I18nProvider } from "@lingui/react";
+import { i18n } from "@lingui/core";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import App from "./App.jsx";
+
+import "./index.css";
+
+import { messages } from "./locales/vi/messages.po";
+i18n.load("vi", messages);
+i18n.activate("vi");
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+    <React.StrictMode>
+        <I18nProvider i18n={i18n}>
+            <App />
+        </I18nProvider>
+    </React.StrictMode>,
+);

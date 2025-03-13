@@ -1,19 +1,20 @@
-import { useEffect, useState } from "react";
+import { Trans } from "@lingui/react/macro";
+import { useEffect } from "react";
+import { Link } from "react-router";
 
 import AoMaLink from "@/components/AoMaLink";
 import { Form } from "@/components/Form";
 import Input from "@/components/Input";
 import Popover from "@/components/Popover";
-import { useBearStore } from "./store";
 import CarouselContainer from "./components/Carousel/CarouselContainer";
+import { defaultLocale, dynamicActivate } from "./i18n";
+import { useBearStore } from "./store";
 
 import ReactLogo from "@/assets/icons/react.svg";
 import ViteLogo from "@/assets/icons/vite.svg";
 import { Cross2Icon } from "@radix-ui/react-icons";
 
 import "./App.css";
-import { defaultLocale, dynamicActivate } from "./i18n";
-import { Trans } from "@lingui/react/macro";
 
 function App() {
     const { bears, increasePopulation } = useBearStore();
@@ -25,9 +26,9 @@ function App() {
     return (
         <>
             <div>
-                <a href="https://vitejs.dev" target="_blank">
+                <Link to="/about">
                     <ViteLogo />
-                </a>
+                </Link>
                 ngu
                 <a href="https://react.dev" target="_blank">
                     <ReactLogo />

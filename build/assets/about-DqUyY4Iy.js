@@ -1,0 +1,1 @@
+import{j as o,C as e,L as r}from"./index-DK7ce6Yz.js";import{u as n}from"./index-CRP06XEa.js";const u=()=>{const{bears:s,increasePopulation:t}=n();return o.jsxs(e,{children:[o.jsx(r,{to:"/",children:"Back"}),"About page",o.jsxs("button",{onClick:t,children:["count is ",s]})]})};export{u as default};

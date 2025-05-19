@@ -1,8 +1,8 @@
 const pageConfig = {
-    login: {
-        path: "path",
-        permissions: [],
-    },
+  login: {
+    path: "path",
+    permissions: [],
+  },
 };
 
 export const publicPages = [pageConfig.login];

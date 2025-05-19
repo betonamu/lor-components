@@ -1,8 +1,8 @@
 import { i18n } from "@lingui/core";
 
 export const locales = {
-    vi: "Vietnamese",
-    en: "English",
+  vi: "Vietnamese",
+  en: "English",
 };
 export const defaultLocale = "vi";
 
@@ -11,7 +11,7 @@ export const defaultLocale = "vi";
  * @param locale any locale string
  */
 export async function dynamicActivate(locale) {
-    const { messages } = await import(`./locales/${locale}/messages.po`);
-    i18n.load(locale, messages);
-    i18n.activate(locale);
+  const { messages } = await import(`./locales/${locale}/messages.po`);
+  i18n.load(locale, messages);
+  i18n.activate(locale);
 }

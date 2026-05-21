@@ -23,6 +23,9 @@ const Header = () => {
             <Link to="/about" className="hover:text-black">
               About
             </Link>
+            <Link to="/code-splitting" className="hover:text-black" style={{ color: "#38bdf8", fontWeight: 600 }}>
+              Code Splitting
+            </Link>
           </Flex>
         </Flex>
       </Container>
